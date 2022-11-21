@@ -12,7 +12,7 @@
 <br />
 <div align="center">
   <a href="[images/kavor-logo.png](https://github.com/vibofglobal/kavor.io/blob/main/images/Kavor-logo.png)">
-    <img src="images/kavor-logo.png" alt="KAVOR" >
+    <img src="images/kavor-logo.png" width="450" alt="KAVOR" >
   </a>
 
   <h3 align="center">KAVOR.io</h3>
