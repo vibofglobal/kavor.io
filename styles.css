@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+
+#myVideo {
+  position: sticky;
+  right: 0;
+  top:0;
+  width: 100%;
+  object-fit: cover;
+}
+.video-content {
+  position: relative;
+}
+
+.content {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1 !important;
+}
+
+
+
+
+
+
+#social-list>* a {
+  background-color: #000;
+  border-radius: 100%;
+  color: #fff;
+  display: block;
+  height: 50px;
+  line-height: 55px;
+  text-align: center;
+  transition: all .3s;
+  width: 50px;
+}
+
+
+.show{
+  max-height: 500px;
+}

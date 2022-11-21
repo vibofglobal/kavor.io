@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kavor.io</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: {
+                50: "#eff6ff",
+                100: "#dbeafe",
+                200: "#bfdbfe",
+                300: "#93c5fd",
+                400: "#60a5fa",
+                500: "#3b82f6",
+                600: "#2563eb",
+                700: "#1d4ed8",
+                800: "#1e40af",
+                900: "#1e3a8a",
+              },
+            },
+          },
+          fontFamily: {
+            body: [
+              "Inter",
+              "ui-sans-serif",
+              "system-ui",
+              "-apple-system",
+              "system-ui",
+              "Segoe UI",
+              "Roboto",
+              "Helvetica Neue",
+              "Arial",
+              "Noto Sans",
+              "sans-serif",
+              "Apple Color Emoji",
+              "Segoe UI Emoji",
+              "Segoe UI Symbol",
+              "Noto Color Emoji",
+            ],
+            sans: [
+              "Inter",
+              "ui-sans-serif",
+              "system-ui",
+              "-apple-system",
+              "system-ui",
+              "Segoe UI",
+              "Roboto",
+              "Helvetica Neue",
+              "Arial",
+              "Noto Sans",
+              "sans-serif",
+              "Apple Color Emoji",
+              "Segoe UI Emoji",
+              "Segoe UI Symbol",
+              "Noto Color Emoji",
+            ],
+          },
+        },
+      };
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <link rel="shortcut icon" href="/images/favicon.png" />
+  </head>
+  <body>
+    <section
+      class="relative lg:h-screen h-[570px] flex flex-col items-start justify-center text-start text-white"
+    >
+      <div
+        class="video-docker absolute top-0 left-0 w-full h-full overflow-hidden"
+      >
+        <video
+          class="min-w-full min-h-full absolute object-cover"
+          src="/images/vibof-kavor.mp4"
+          type="video/mp4"
+          autoplay
+          muted
+          loop
+        ></video>
+      </div>
+      <nav class="content px-[5%] py-4 text-md" id="header">
+        <div
+          class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
+        >
+          <a href="/" class="flex items-center">
+            <img  id="kavorLogo" class="mr-3 h-12 sm:h-12" alt="Kavor" />
+          </a>
+          <div class="lg:hidden flex items-center lg:order-2">
+            <button
+              data-collapse-toggle="mobile-menu-2"
+              type="button"
+              id="menu-button"  
+              class="btn-1 inline-flex items-center p-2 ml-1 text-sm text-white rounded-lg lg:hidden focus:outline-none focus:ring-2 focus:ring-gray-200"
+              aria-controls="mobile-menu-2"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Open main menu</span>
+              <i class="fa-solid fa-bars-staggered"></i>
+            </button>
+          </div>
+          <div
+            class="lg:justify-between items-center w-full lg:flex lg:w-auto lg:order-1 text-center"
+          >
+            <ul
+              class="hidden justify-center lg:flex flex-col mt-4 items-center font-medium lg:flex-row lg:space-x-8 lg:mt-0"
+              id="menu"  
+            >
+              <li class="border-b lg:border-none">
+                <a
+                  href="https://vibof.com.tr/"
+                  class="block py-2 pr-4 pl-3 text-[#d4b768] hover:text-[#f8aa38] rounded cursor-pointer"
+                  aria-current="page"
+                  >Borsa</a
+                >
+              </li>
+              <li class="border-b lg:border-none">
+                <a
+                  href="https://vibof.com.tr/Trade"
+                  class="block py-2 pr-4 pl-3 text-[#d4b768] hover:text-[#f8aa38] border-gray-100 cursor-pointer"
+                  >Piyasa</a
+                >
+              </li>
+              <li class="border-b lg:border-none">
+                <a
+                  href="https://vibof.com.tr/Issue"
+                  class="block py-2 pr-4 pl-3 text-[#d4b768] hover:text-[#f8aa38] border-gray-100 cursor-pointer"
+                  >Ön Satış</a
+                >
+              </li>
+              <li class="border-b lg:border-none">
+                <a
+                  href="https://vibof.com.tr/Store/index"
+                  class="block py-2 pr-4 pl-3 text-[#d4b768] hover:text-[#f8aa38] border-gray-100 cursor-pointer"
+                  >Mağaza</a
+                >
+              </li>
+              <li class="border-b lg:border-none">
+                <a
+                  href="https://vibof.com.tr/Vote/index"
+                  class="block py-2 pr-4 pl-3 text-[#d4b768] hover:text-[#f8aa38] border-gray-100 cursor-pointer"
+                  >Oylama</a
+                >
+              </li>
+              <li class="border-b lg:border-none">
+                <a
+                  href="https://vibof.com.tr/Otc"
+                  class="block py-2 pr-4 pl-3 text-[#d4b768] hover:text-[#f8aa38] border-gray-100 cursor-pointer"
+                  >OTC</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="video-content p-[4%]">
+        <h1 class="lg:text-6xl text-4xl font-bold">
+          VİBOF KAVOR <br />PARANIZI <br />
+          GÜVENLE SAKLAR.
+        </h1>
+        <p class="text-xl font-normal my-10">
+          Vibof KAVOR ile kripto varlıklarınızı güvenle saklamak, satın almak,
+          <br />
+          takas etmek ve artırmak için en akıllıca yoldur.
+        </p>
+
+        <a
+          href="/"
+          title="Vibof'u kullanmaya başlayın"
+          class="underline font-semibold text-lg"
+          >Vibof'u kullanmaya başlayın<i
+            class="fa-solid fa-arrow-right text-sm"
+          ></i
+        ></a>
+      </div>
+    </section>
+    <main>
+      <div class="w-full h-[50%] bg-rose-500 mb-28">
+        <a href="https://vibof.com.tr/">
+          <picture>
+            <source media="(min-width: 690px)" srcset="/images/banner-kavor.jpg" />
+            <source media="(max-width: 690px)" srcset="/images/Mobile-kavor.jpg" />
+            <img src="/images/banner-kavor.jpg" alt="Daha fazla bilgi" />
+          </picture>
+          <!-- <img src="https://www.ledger.com/wp-content/uploads/2022/07/BANNER-tr.png" alt="banneer"> -->
+        </a>
+      </div>
+
+      <div class="lg:flex mx-[4%] mb-28 lg:justify-between block items-center">
+        <div class="lg:w-2/5 lg:mr-12 lg:p-5 p-10">
+          <img src="/images/vibof-kavor-mobil.png" alt="Vibof Wallet" />
+        </div>
+        <div class="lg:w-3/5">
+          <p class="font-normal text-lg mb-3">Vibof Live</p>
+          <h3 class="text-5xl font-medium mb-20">
+            TÜM KRİPTO İHTİYAÇLARINIZ<br />
+            TEK BİR YERDE
+          </h3>
+          <div class="mx-auto max-w-screen-xl">
+            <div
+              class="space-y-8 lg:p-0 px-5 md:grid md:grid-cols-2 lg:grid-cols-2 md:gap-12 md:space-y-0"
+            >
+              <div class="cursor-pointer">
+                <h3 class="mb-2 text-2xl font-semibold">Satın Alın</h3>
+                <p class="text-gray-500 my-5">
+                  Basit, güvenli ve akıllı bir şekilde bitcoin ve başka kripto
+                  paralar satın alın.
+                </p>
+                <a
+                  href="https://vibof.com.tr/"
+                  class="underline font-medium text-lg"
+                  >Kripto satın alma hakkında bilgi edinin
+                  <i class="fa-solid fa-arrow-right text-sm"></i
+                ></a>
+              </div>
+              <div class="opacity-40 hover:opacity-100 cursor-pointer">
+                <h3 class="mb-2 text-2xl font-semibold">Takas edin</h3>
+                <p class="text-gray-500 dark:text-gray-400 my-5">
+                  Saniyeler içinde kripto para takas ederek varlıklarınızdan en
+                  iyi şekilde faydalanın.
+                </p>
+                <a
+                  href="https://vibof.com.tr/"
+                  class="underline font-medium text-lg"
+                  >Kripto takas etme hakkında bilgi edinin
+                  <i class="fa-solid fa-arrow-right text-sm"></i
+                ></a>
+              </div>
+              <div class="opacity-40 hover:opacity-100 cursor-pointer">
+                <h3 class="mb-2 text-2xl font-semibold">Artırın</h3>
+                <p class="text-gray-500 my-5">
+                  Kripto varlıklarınızı parmağınızı bile kıpırdatmadan, güvenli
+                  ve tek bir platformda artırın.
+                </p>
+                <a
+                  href="https://vibof.com.tr/"
+                  class="underline font-medium text-lg"
+                  >Kripto varlıklarınızı artırma hakkında bilgi edinin
+                  <i class="fa-solid fa-arrow-right text-sm"></i
+                ></a>
+              </div>
+              <div class="opacity-40 hover:opacity-100 cursor-pointer">
+                <h3 class="mb-2 text-2xl font-semibold">
+                  Yeni olanaklarla dolu bir kripto dünyasının kapılarını açın.
+                </h3>
+                <p class="text-gray-500 my-5">
+                  Akıllı hizmetlerimizin tümüne erişin.
+                </p>
+                <a
+                  href="https://vibof.com.tr/"
+                  class="underline font-medium text-lg"
+                  >Tüm hizmetleri görün
+                  <i class="fa-solid fa-arrow-right text-sm"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-[#1C1D20] pt-20 mb-32">
+        <div class="lg:flex justify-between mx-[4%] mb-5">
+          <h2
+            class="text-white lg:text-5xl text-4xl mb-4 uppercase lg:w-2/5 font-semibold"
+          >
+            SİZİN İÇİN EN UYGUN VİBOF CÜZDANINI BULUN
+          </h2>
+          <div class="text-white lg:w-2/5">
+            <p class="lg:text-lg text-sm mb-4 font-normal">
+              İster kriptolarınızı ilerisi için güvende tutmayı ister günlük
+              olarak yönetmeyi hedefliyor olun; aradığınız ürün bizde.
+            </p>
+          </div>
+        </div>
+        <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16 lg:px-6">
+          <div
+            class="space-y-8 lg:grid lg:grid-cols-3 sm:gap-6 xl:gap-10 lg:space-y-0"
+          >
+            <!-- Pricing Card -->
+            <div
+              class="flex justify-center flex-col px-6 mx-auto max-w-lg text-center text-white xl:px-8"
+            >
+              <div class="flex justify-center items-center">
+                <img
+                  src="/images/vibof-usb-frontend.png"
+                  alt=""
+                  class="mb-4 w-1/4"
+                />
+              </div>
+              <h3 class="mb-4 text-4xl font-semibold">KAVOR U.N.C</h3>
+              <!-- <div class="flex justify-between items-center mb-2">
+                <div class="text-amber-400 text-sm">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+                <p>4,4/5 - 1.254 Değerlendirme</p>
+              </div> -->
+              <p class="font-normal text-start text-white sm:text-lg">
+                Bluetooth özellikli yeni donanım cüzdanımızla tüm kriptolarınızı
+                hareket halindeyken yönetin
+              </p>
+            </div>
+            <!-- Pricing Card -->
+            <!-- Pricing Card -->
+            <div
+              class="flex justify-center flex-col px-6 mx-auto max-w-lg text-center text-white border-x border-[#ffffff1a] xl:px-8"
+            >
+              <div class="flex justify-center items-center">
+                <img
+                  src="/images/vibof-usb-backend.png"
+                  alt=""
+                  class="mb-4 w-1/4"
+                />
+              </div>
+              <h3 class="mb-4 text-4xl font-semibold">KAVOR İ.C.W</h3>
+              <!-- <div class="flex justify-between items-center mb-2">
+                <div class="text-amber-400 text-sm">
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i>
+                  <i class="fa-regular fa-star"></i>
+                </div>
+                <p>4,4/5 - 987 Değerlendirme</p>
+              </div> -->
+              <p class="font-normal text-start text-white sm:text-lg">
+                En popüler donanım cüzdanıyla en sevdiğiniz kriptoları güvende tutun.
+              </p>
+            </div>
+            <!-- Pricing Card -->
+            <div
+              class="flex justify-end flex-col px-6 mx-auto max-w-lg text-center text-white xl:px-8"
+            >
+              <img src="/images/security_kavor_.png" alt="Vibof Kavor Security" class="mb-9 p-10" />
+              <h3 class="mb-4 text-3xl font-semibold">
+                İhtiyaçlarınız doğrultusunda doğru cihazı seçmek için yardıma mı
+                ihtiyacınız var?
+              </h3>
+              <p class="font-light text-white sm:text-lg mb-2 lg:mb-0">
+                İki ürünümüzün de niteliklerini, belirgin özelliklerini ve
+                kullanım alanlarını keşfedin ve beklentilerinizi en iyi
+                karşılayan ürünü seçin.
+              </p>
+
+              <div class="px-8 py-6 bg-[#131722] rounded-full">
+                <a
+                  href="https://vibof.com.tr/"
+                  class="text-white focus:ring-4 font-medium text-md text-center easy-in duration-300 hover:mr-4"
+                  >Cihazlarımız çok yakında sizlerle</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="px-4 mx-auto max-w-screen-xl lg:px-6 mb-32">
+        <div class="lg:grid lg:grid-cols-2 sm:gap-6 xl:gap-10">
+          <!-- Pricing Card -->
+          <div
+            class="flex flex-col mb-8 lg:mb-0 lg:p-20 p-3 w-full text-start text-black bg-white border border-gray-100 shadow xl:p-20 bg-[#f1f1f1]"
+          >
+            <center>
+              <img
+                src="https://www.ledger.com/wp-content/uploads/2021/11/homepage-get-started.png"
+                alt="Kripto dünyasında yeni misiniz?"
+                class="mb-16"
+                width="305"
+              />
+            </center>
+            <p class="font-semibold text-sm mb-3 uppercase">
+              KRİPTO DÜNYASINDA YENİ MİSİNİZ?
+            </p>
+            <p class="font-medium text-4xl mb-12">
+              İçeriden vereceğimiz akıllı ipuçlarıyla başlayın.
+            </p>
+            <a
+              href="https://vibof.com.tr/"
+              class="font-semibold text-lg underline text-start"
+              >Kriptoya başlayın <i class="fa-solid fa-arrow-right text-sm"></i
+            ></a>
+          </div>
+          <!-- Pricing Card -->
+          <div
+            class="flex flex-col lg:p-20 p-3 w-full text-start text-black bg-white border border-gray-100 shadow xl:p-20 bg-[#f1f1f1]"
+          >
+            <center>
+              <img
+                src="https://www.ledger.com/wp-content/uploads/2021/11/homepage-academy-block.png"
+                alt="Kripto dünyasında yeni misiniz?"
+                class="mb-16"
+                width="305"
+              />
+            </center>
+            <p class="font-semibold text-sm mb-3 uppercase">
+              KRİPTO UZMANI MI OLMAK İSTİYORSUNUZ?
+            </p>
+            <p class="font-medium text-4xl mb-12">
+              Vibof ile kriptoya dair yeni içgörüler edinin.
+            </p>
+
+            <a
+              href="https://vibof.com.tr/"
+              class="font-semibold text-lg underline text-start"
+              >Kripto uzmanı olun<i class="fa-solid fa-arrow-right text-sm"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="lg:flex lg:mx-[4%] mb-14">
+        <!-- Tabs -->
+        <ul
+          id="tabs"
+          class="lg:w-[40%] flex justify-between lg:block mb-5 lg:mb-0"
+        >
+          <li class="hover:opacity-50 px-4">
+            <a id="default-tab" href="#first">
+              <p class="font-semibold">Video</p>
+              <span
+                class="text-black lg:text-[38px] font-semibold cursor-pointer"
+                >VİBOF LANSMAN</span
+              >
+            </a>
+          </li>
+          <li class="hover:opacity-50 px-4 lg:my-14">
+            <a href="#second">
+              <p class="font-semibold">Podcast</p>
+              <span
+                class="text-black lg:text-[38px] font-semibold cursor-pointer"
+                >ON THE VİBOF</span
+              >
+            </a>
+          </li>
+          <li class="hover:opacity-50 px-4">
+            <a href="#third">
+              <p class="font-semibold">Makeleler</p>
+              <span
+                class="text-black lg:text-[38px] font-semibold cursor-pointer"
+                >BLOG YAZILARI VE HABERLER</span
+              >
+            </a>
+          </li>
+        </ul>
+
+        <!-- Tab Contents -->
+        <div id="tab-contents" class="lg:w-[60%]">
+          <div id="first" class="p-4">
+            <h4 class="text-xl font-semibold">Daha fazla güvenlik.</h4>
+            <p class="lg:text-base text-sm font-normal mt-7 mb-4">
+              Günaydın. Burada ünlü sorusu yok. Eminim sizin de çok mantıklı
+              sorularınız vardır. Bir saniye. Şimdi, elimde bu fütüristik kripto
+              para var, bu güvenli çipli ve bellekli yüksek teknolojili cihaz
+              var ama en zayıf noktası üzerinde 24 kelime yazan bir kağıt
+              parçası mı? Ya bir sel olur da kaybolursa…
+            </p>
+            <a
+              href="https://www.youtube.com/watch?v=U2qGdMKwUPU"
+              class="underline font-bold text-xl mb-6 w-full lg:text-end text-start"
+              ><p>
+                Bölümü izle<i
+                  class="fa-solid fa-arrow-right text-sm ml-2"
+                ></i></p
+            ></a>
+            <iframe
+              class="mt-4"
+              src="https://www.youtube.com/embed/U2qGdMKwUPU"
+              title=""
+              width="100%"
+              height="400"
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen=""
+            ></iframe>
+          </div>
+          <div id="second" class="hidden p-4">
+            <div
+              class="space-y-8 md:grid md:grid-cols-2 lg:grid-cols-2 md:gap-12 md:space-y-0"
+            >
+              <div class="cursor-pointer">
+                <h3 class="mb-2 text-2xl font-semibold">Satın Alın</h3>
+                <p class="text-gray-500 my-5">
+                  Basit, güvenli ve akıllı bir şekilde bitcoin ve başka kripto
+                  paralar satın alın.
+                </p>
+                <a
+                  href="https://vibof.com.tr/"
+                  class="underline font-medium text-lg"
+                  >Kripto satın alma hakkında bilgi edinin
+                  <i class="fa-solid fa-arrow-right text-sm"></i
+                ></a>
+              </div>
+              <div class="cursor-pointer">
+                <h3 class="mb-2 text-2xl font-semibold">Takas edin</h3>
+                <p class="text-gray-500 dark:text-gray-400 my-5">
+                  Saniyeler içinde kripto para takas ederek varlıklarınızdan en
+                  iyi şekilde faydalanın.
+                </p>
+                <a
+                  href="https://vibof.com.tr/"
+                  class="underline font-medium text-lg"
+                  >Kripto takas etme hakkında bilgi edinin
+                  <i class="fa-solid fa-arrow-right text-sm"></i
+                ></a>
+              </div>
+              <div class="cursor-pointer">
+                <h3 class="mb-2 text-2xl font-semibold">Artırın</h3>
+                <p class="text-gray-500 my-5">
+                  Kripto varlıklarınızı parmağınızı bile kıpırdatmadan, güvenli
+                  ve tek bir platformda artırın.
+                </p>
+                <a
+                  href="https://vibof.com.tr/"
+                  class="underline font-medium text-lg"
+                  >Kripto varlıklarınızı artırma hakkında bilgi edinin
+                  <i class="fa-solid fa-arrow-right text-sm"></i
+                ></a>
+              </div>
+              <div class="cursor-pointer">
+                <h3 class="mb-2 text-2xl font-semibold">
+                  Yeni olanaklarla dolu bir kripto dünyasının kapılarını açın.
+                </h3>
+                <p class="text-gray-500 my-5">
+                  Akıllı hizmetlerimizin tümüne erişin: DeFi uygulamaları,
+                  NFT'ler ve daha fazlası.
+                </p>
+                <a
+                  href="https://vibof.com.tr/"
+                  class="underline font-medium text-lg"
+                  >Tüm hizmetleri görün
+                  <i class="fa-solid fa-arrow-right text-sm"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+          <div id="third" class="hidden p-4">
+            <div
+              class="space-y-8 md:grid md:grid-cols-3 lg:grid-cols-3 md:gap-12 md:space-y-0"
+            >
+              <div class="cursor-pointer">
+                <img
+                  src="https://www.ledger.com/wp-content/uploads/2020/07/30-06_-BlogpostThumb.png"
+                  alt=""
+                />
+                <p class="text-gray-900 my-5">
+                  Satın Alma ve Sahip Olma: Az Önce Satın Aldığınız ...
+                </p>
+                <a
+                  href="https://vibof.com.tr/"
+                  class="underline font-medium text-lg"
+                  >Devamını oku<i class="fa-solid fa-arrow-right text-sm"></i
+                ></a>
+              </div>
+              <div class="cursor-pointer">
+                <img
+                  src="https://www.ledger.com/wp-content/uploads/2020/07/30-06_-BlogpostThumb.png"
+                  alt=""
+                />
+                <p class="text-gray-500 dark:text-gray-400 my-5">
+                  Vibof ve FTX, Vibof üzerinde kaldıraç ve al...
+                </p>
+                <a
+                  href="https://vibof.com.tr/"
+                  class="underline font-medium text-lg"
+                  >Devamını oku<i class="fa-solid fa-arrow-right text-sm"></i
+                ></a>
+              </div>
+              <div class="cursor-pointer">
+                <img
+                  src="https://www.ledger.com/wp-content/uploads/2020/07/30-06_-BlogpostThumb.png"
+                  alt=""
+                />
+                <p class="text-gray-500 my-5">
+                  Stratis Token Geçişi: Vibof Kullanıcıları için Ne...
+                </p>
+                <a
+                  href="https://vibof.com.tr/"
+                  class="underline font-medium text-lg"
+                  >Devamını oku<i class="fa-solid fa-arrow-right text-sm"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full text-white  bg-[#131722]">
+        <div class="mx-[4%] py-20">
+          <h3 class="mb-4 text-[3.2rem] font-[500]">İletişimde kalın</h3>
+          <p class="mb-4">
+            Duyurulara soyal medya hesaplarımızdan erişebilirsiniz.
+          </p>
+          <ul
+            class="lg:flex grid grid-cols-3 space-y-1 lg:space-y-0 lg:space-x-2"
+            id="social-list"
+          >
+            <li>
+              <a href="https://t.me/viboftr"
+                ><i class="fa-brands fa-telegram text-white text-2xl"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://www.facebook.com/people/Vibof-Borsa/100081147842169/"
+                ><i class="fa-brands fa-facebook text-white text-2xl"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/viboftoken/"
+                ><i class="fa-brands fa-instagram text-white text-2xl"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://mobile.twitter.com/vibofturkiye"
+                ><i class="fa-brands fa-twitter text-white text-2xl"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.youtube.com/c/VibofGlobal"
+                ><i class="fa-brands fa-youtube text-white text-2xl"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/company/vibof/"
+                ><i class="fa-brands fa-linkedin text-white text-2xl"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <footer class="w-full bg-[#131722] pt-20 text-white">
+      <div class="mx-[4%]">
+        <div
+          class="lg:flex text-center px-5 lg:px-0 lg:justify-between grid grid-cols-2 pb-10 lg:space-y-0 space-y-2"
+        >
+          <div class="mr-5 lg:mr-0">
+            <a href="/">
+                <img src="/images/logo.png" width="200px" alt="Vibof Borsası" />
+            </a>
+            <p class="mt-5">Vibof: Bitcoin Al - BTC Al - Kripto Para Borsası</p>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-3">SERVICE</h4>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="https://vibof.com.tr/Content/fees"
+                  class="hover:text-[#d4b768] text-sm"
+                  >İşlem ÜCreti</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://vibof.com.tr/Content/referral"
+                  class="hover:text-[#d4b768] text-sm"
+                  >Referral</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://vibof.com.tr/Content/health"
+                  class="hover:text-[#d4b768] text-sm"
+                >
+                  Coins Health</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="text-xl font-semibold mb-3">HAKKINDA</h4>
+            <a
+              href="https://vibof.com.tr/Article/type/id/1"
+              class="hover:text-[#d4b768] text-sm"
+              >İşlem Ücreti</a
+            >
+          </div>
+          <div><h4 class="text-xl font-semibold mb-3">
+            <a href="https://t.me/viboftr" >
+              YARDIM
+            </a>
+          </h4></div>
+        </div>
+        <div class="text-center text-sm pb-2">
+          <p class="text-white">
+            Copyright 2022
+            <a
+              href="https://vibof.com.tr"
+              class="text-gray-400 hover:text-[#d4b768]"
+              >Vibof Kripto Para Borsası
+            </a>
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script>
+      let tabsContainer = document.querySelector("#tabs");
+
+      let tabTogglers = tabsContainer.querySelectorAll("#tabs a");
+
+      console.log(tabTogglers);
+
+      tabTogglers.forEach(function (toggler) {
+        toggler.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          let tabName = this.getAttribute("href");
+
+          let tabContents = document.querySelector("#tab-contents");
+
+          for (let i = 0; i < tabContents.children.length; i++) {
+            tabContents.children[i].classList.remove("hidden");
+
+            if ("#" + tabContents.children[i].id === tabName) {
+              continue;
+            }
+            tabContents.children[i].classList.add("hidden");
+          }
+        });
+      });
+    </script>
+    <script>
+      $(function () {
+        $(window).on("scroll", function () {
+          if ($(window).scrollTop() > 50) {
+            $("#header").addClass("bg-[#131722] text-hover");
+            $('#kavorLogo').attr('src','/images/kavor-logo-2.png');
+          } else {
+            //remove the background property so it comes transparent again (defined in your css)
+            $("#header").removeClass("bg-[#131722]");
+            $('#kavorLogo').attr('src','/images/kavor-logo.png');
+          }
+        });
+      });
+    </script>
+    <script>
+      const button = document.querySelector('#menu-button');
+      const menu = document.querySelector('#menu');
+
+
+      button.addEventListener('click', () => {
+        menu.classList.toggle('hidden');
+
+      });
+    </script>
+  </body>
+</html>
